@@ -1,0 +1,134 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #f7e1b5;
+    color: #5d4037;
+    margin: 0;
+    display: grid;
+    grid-template-areas: "header header" "cookie shop";
+    grid-template-columns: 2fr 1fr;
+    height: 100vh;
+}
+
+header {
+    grid-area: header;
+    background-color: #a1887f;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+}
+
+main {
+    display: contents;
+}
+
+#cookie-container {
+    grid-area: cookie;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#main-cookie {
+    width: 300px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.1s ease-out;
+    z-index: 1;
+}
+
+#main-cookie:hover {
+    transform: scale(1.05);
+}
+
+#main-cookie:active {
+    transform: scale(0.95);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Biscoito Dourado */
+#golden-cookie {
+    position: absolute;
+    width: 90px;
+    height: auto;
+    cursor: pointer;
+    z-index: 10;
+    filter: brightness(1.4) sepia(1) hue-rotate(-10deg) saturate(4) drop-shadow(0 0 12px gold);
+    animation: pulseGold 1s infinite alternate;
+}
+
+@keyframes pulseGold {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); }
+}
+
+/* Números flutuantes */
+.floating-number {
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffeb3b;
+    text-shadow: 2px 2px 0px #5d4037;
+    pointer-events: none;
+    animation: floatUp 0.8s ease-out forwards;
+    z-index: 5;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-60px) scale(1.2);
+    }
+}
+
+/* Cabeçalho muda de cor quando o bônus está ativo */
+.bonus-active {
+    background-color: #ff8f00 !important;
+}
+
+#golden-timer {
+    font-weight: bold;
+    color: #fff176;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+#shop {
+    grid-area: shop;
+    background-color: #d7ccc8;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.shop-item {
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.shop-item button {
+    background-color: #a1887f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.shop-item button:hover {
+    background-color: #8d6e63;
+}

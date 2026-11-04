@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuqui Cliquer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='joguinho.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Cuqui Cliquer</h1>
+        <div id="stats">
+            <p>Biscoitos: <span id="cookie-count">0</span></p>
+            <p>Por segundo: <span id="cps-count">0</span></p>
+            <!-- Cronômetro do Biscoito Dourado -->
+            <p id="golden-timer" class="hidden">Bônus ativo: <span id="time-left">10</span>s</p>
+        </div>
+    </header>
+
+    <main>
+        <div id="cookie-container">
+            <!-- Biscoito Principal -->
+            <img src="{{ url_for('static', filename='Cookie_JE2_BE2.webp') }}" alt="Biscoito Gigante" id="main-cookie">
+            <!-- Biscoito Dourado -->
+            <img src="{{ url_for('static', filename='Cookie_JE2_BE2.webp') }}" alt="Biscoito Dourado" id="golden-cookie" class="hidden">
+        </div>
+
+        <aside id="shop">
+            <h2>Loja</h2>
+
+            <!-- COMPRAR PONTEIRO -->
+            <div class="shop-item" id="buy-pointer">
+                <h3>Auto click</h3>
+                <p>Custo: <span class="cost">10</span> biscoitos</p>
+                <p>Comprados: <span id="contadorautoclick">0</span></p>
+                <button onclick="buyPointer()">Comprar</button>
+            </div>
+
+            <!--  | Produz: <span id="pointer-power">1</span> por compra -->
+
+            <!-- UPGRADE DO PONTEIRO (3 NÍVEIS) -->
+            <div class="shop-item" id="buy-pointer-upgrade">
+                <h3><span id="pointer-upgrade-name">Ponteiro Lubrificado</span></h3>
+                <p>Custo: <span id="pointer-upgrade-cost">500</span> biscoitos</p>
+                <p>Melhora a velocidade de todos os ponteiros</p>
+                <button onclick="buyPointerUpgrade()">Comprar</button>
+            </div>
+
+            <!-- LUVAS DE CONFEITEIRO (5 NÍVEIS) -->
+            <div class="shop-item" id="buy-gloves-item">
+                <h3><span id="gloves-name">Luvas de Couro</span></h3>
+                <p>Custo: <span id="gloves-cost">100</span> biscoitos</p>
+                <p>Aumenta o poder dos seus cliques</p>
+                <button onclick="buyGloves()">Comprar Upgrade</button>
+            </div>
+            <!-- UPGRADE PARA AS LUVAS (3 NÍVEIS) -->
+            <div class="shop-item" id="buy-glove-upgrade">
+                <h3><span id="glove-upgrade-name">Polimento de Luvas</span></h3>
+                <p>Custo: <span id="glove-upgrade-cost">1000</span> biscoitos</p>
+                <p>Aumenta o bônus de todas as luvas!</p>
+                <button onclick="buyGloveUpgrade()">Comprar</button>
+            </div>
+            <!-- UPGRADE PARA O MULTIPLICADOR DO BISCOITO DOURADO (2 NÍVEIS) -->
+            <div class="shop-item" id="buy-golden-mult-upgrade">
+                <h3><span id="golden-mult-name">Sorte de Ouro (x5)</span></h3>
+                <p>Custo: <span id="golden-mult-cost">25000</span> biscoitos</p>
+                <p>Melhora o bônus do biscoito dourado</p>
+                <button onclick="buyGoldenMultUpgrade()">Comprar</button>
+            </div>
+
+            <!-- UPGRADE PARA A DURAÇÃO DO BISCOITO DOURADO (2 NÍVEIS) -->
+            <div class="shop-item" id="buy-golden-duration-upgrade">
+                <h3><span id="golden-duration-name">Biscoito Extendido (15s)</span></h3>
+                <p>Custo: <span id="golden-duration-cost">40000</span> biscoitos</p>
+                <p>Aumenta o tempo de duração do bônus</p>
+                <button onclick="buyGoldenDurationUpgrade()">Comprar</button>
+            </div>
+            <!-- UPGRADE FINAL: TRANSMUTADOR DE MATÉRIA -->
+            <div class="shop-item" id="buy-matter-transmuter">
+                <h3><span id="matter-transmuter-name">Novo jeito de clicar</span></h3>
+                <p>Custo: <span id="matter-transmuter-cost">69676967    </span> biscoitos</p>
+                <p>Compre e descubra o que faz</p>
+                <button onclick="buyMatterTransmuter()">Comprar</button>
+            </div>
+        </aside>
+    </main>
+
+    <script src="{{ url_for('static', filename='joguinho.js') }}"></script>
+</body>
+</html>
