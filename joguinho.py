@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__, template_folder="HTML", static_folder="STATIC")
 
-@app.route("/cookie")
+@app.route("/")
 def cookie():
     return render_template("joguinho.html")
 
